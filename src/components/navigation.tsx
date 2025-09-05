@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
 import { Button } from "@/components/ui/button"
+import { useNavigate } from "react-router-dom"
 
 const navItems = [
   { type: "route", to: "/", label: "Home" },
