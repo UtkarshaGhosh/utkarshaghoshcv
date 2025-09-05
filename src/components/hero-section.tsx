@@ -1,7 +1,6 @@
 import { motion } from "framer-motion"
-import { ArrowDown, Download } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import SplitText from "@/components/SplitText"
+import { ArrowDown } from "lucide-react"
+import ProfileCard from "@/components/ProfileCard"
 
 export function HeroSection() {
   const handleDownloadCV = async () => {
@@ -60,54 +59,20 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          {/* Name Animation */}
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, type: "spring", bounce: 0.5 }}
-            className="text-6xl md:text-8xl font-bold mb-6"
-          >
-            <span className="text-gradient">Utkarsha</span>
-            <br />
-            <span className="text-gradient">Ghosh</span>
-          </motion.h1>
-
-          {/* Title Animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mb-8"
-          >
-            <SplitText
-              text="B.tech IT Student"
-              tag="h2"
-              className="text-xl md:text-2xl text-muted-foreground mb-2"
-              splitType="chars"
-              delay={60}
-              duration={0.5}
-              from={{ opacity: 0, y: 30 }}
-              to={{ opacity: 1, y: 0 }}
+          <div className="flex justify-center mb-12">
+            <ProfileCard
+              avatarUrl="/placeholder.svg"
+              miniAvatarUrl="/placeholder.svg"
+              name="Utkarsha Ghosh"
+              title="B.tech IT Student"
+              handle="utkarsha"
+              status="Open to opportunities"
+              contactText="Download CV"
+              onContactClick={handleDownloadCV}
+              enableTilt
+              className="scale-95 md:scale-100"
             />
-          </motion.div>
-
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-          >
-            <Button
-              onClick={handleDownloadCV}
-              size="lg"
-              className="bg-gradient-primary hover-glow text-white border-0 px-8 py-6 text-lg"
-            >
-              <Download className="w-5 h-5 mr-2" />
-              Download CV
-            </Button>
-          </motion.div>
+          </div>
 
           {/* Scroll Indicator */}
           <motion.div
