@@ -79,9 +79,16 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mb-8"
           >
-            <h2 className="text-xl md:text-2xl text-muted-foreground mb-2">
-              B.Tech IT Student
-            </h2>
+            <SplitText
+              text="B.tech IT Student"
+              tag="h2"
+              className="text-xl md:text-2xl text-muted-foreground mb-2"
+              splitType="chars"
+              delay={60}
+              duration={0.5}
+              from={{ opacity: 0, y: 30 }}
+              to={{ opacity: 1, y: 0 }}
+            />
           </motion.div>
 
 
