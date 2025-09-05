@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { ArrowDown, Download, Mail, Phone } from "lucide-react"
+import { ArrowDown, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
@@ -81,27 +81,8 @@ export function HeroSection() {
             <h2 className="text-xl md:text-2xl text-muted-foreground mb-2">
               B.Tech IT Student
             </h2>
-            <h3 className="text-lg md:text-xl text-muted-foreground">
-              Cybersecurity & Software Enthusiast
-            </h3>
           </motion.div>
 
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 text-muted-foreground"
-          >
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4" />
-              <span>utkarsha04ghosh@gmail.com</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              <span>8910336498</span>
-            </div>
-          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
