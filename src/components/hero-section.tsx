@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   const [parallax, setParallax] = useState({ x: 0, y: 0 })
@@ -81,7 +80,6 @@ export function HeroSection() {
                 data, and modern web technologies.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Button onClick={handleDownloadCV} className="bg-gradient-primary text-white border-0">Download CV</Button>
                 <a href="#about" className="px-4 py-2 rounded-md glass-card hover-glow">About Me</a>
               </div>
             </div>
