@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { ArrowDown } from "lucide-react"
-import { SiteProfileCard } from "@/components/site-profile-card"
+import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   const handleDownloadCV = async () => {
@@ -59,13 +59,26 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="flex justify-center mb-12 px-4">
-            <SiteProfileCard
-              name="Utkarsha Ghosh"
-              title="B.tech IT Student"
-              avatarUrl="/placeholder.svg"
-              onPrimaryClick={handleDownloadCV}
-            />
+          <div className="grid md:grid-cols-2 items-center gap-10 md:gap-16 text-left">
+            <div>
+              <p className="text-sm uppercase tracking-widest text-muted-foreground mb-2">Hello I'm</p>
+              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-3">
+                <span className="text-gradient">Utkarsha Ghosh</span>
+              </h1>
+              <h2 className="text-lg md:text-xl text-muted-foreground mb-4">B.tech IT Student</h2>
+              <p className="text-muted-foreground max-w-xl mb-6">
+                Passionate about building secure, user‑friendly software. Exploring cybersecurity,
+                data, and modern web technologies.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Button onClick={handleDownloadCV} className="bg-gradient-primary text-white border-0">Download CV</Button>
+                <a href="#about" className="px-4 py-2 rounded-md glass-card hover-glow">About Me</a>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute -inset-6 bg-gradient-primary opacity-20 blur-3xl rounded-xl" />
+              <img src="/placeholder.svg" alt="Utkarsha Ghosh portrait" className="relative w-full max-w-md mx-auto rounded-xl ring-1 ring-white/20 shadow-elevation" />
+            </div>
           </div>
 
           {/* Scroll Indicator */}
