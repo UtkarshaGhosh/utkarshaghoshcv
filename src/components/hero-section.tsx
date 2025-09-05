@@ -4,8 +4,12 @@ import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   const handleDownloadCV = () => {
-    // This would typically trigger a PDF download
-    console.log("Downloading CV...")
+    const link = document.createElement("a")
+    link.href = "/cv.pdf"
+    link.download = "CV.pdf"
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
   }
 
   return (
