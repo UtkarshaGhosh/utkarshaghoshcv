@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { ArrowDown, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import SplitText from "@/components/SplitText"
 
 export function HeroSection() {
   const handleDownloadCV = async () => {
