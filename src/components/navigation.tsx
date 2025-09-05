@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Download } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
 import { Button } from "@/components/ui/button"
 import { useNavigate } from "react-router-dom"
@@ -27,6 +27,29 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  const handleDownloadCV = async () => {
+    const CV_URL = "https://cdn.builder.io/o/assets%2F3265fc7b7f7e43fc873a70e5cb8e78d5%2Fdcef5e30c2574e5686fe3d4e4d7ce641?alt=media&token=0e599403-b1d4-40ab-92c6-ee7fcabef778&apiKey=3265fc7b7f7e43fc873a70e5cb8e78d5"
+    try {
+      const res = await fetch(CV_URL, { mode: "cors" })
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement("a")
+      link.href = url
+      link.download = "Utkarsha Ghosh_CV.pdf"
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+      URL.revokeObjectURL(url)
+    } catch {
+      const link = document.createElement("a")
+      link.href = CV_URL
+      link.download = "Utkarsha Ghosh_CV.pdf"
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+    }
+  }
 
   const handleNavClick = (item: { type: "route" | "hash"; to: string }) => {
     setIsMobileMenuOpen(false)
@@ -55,15 +78,15 @@ export function Navigation() {
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Top-left Download CV */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
           >
-            <span className="text-xl font-bold text-gradient">
-              Utkarsha Ghosh
-            </span>
+            <Button onClick={handleDownloadCV} className="bg-gradient-primary text-white border-0 px-4 py-2">
+              <Download className="w-4 h-4 mr-2" /> Download CV
+            </Button>
           </motion.div>
 
           {/* Desktop Navigation */}
