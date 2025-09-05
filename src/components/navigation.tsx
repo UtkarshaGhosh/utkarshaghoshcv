@@ -70,11 +70,11 @@ export function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item, index) => (
               <motion.button
-                key={item.href}
+                key={item.to}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
-                onClick={() => handleNavClick(item.href)}
+                onClick={() => handleNavClick(item)}
                 className="hover:text-primary transition-colors duration-300 relative group"
               >
                 {item.label}
