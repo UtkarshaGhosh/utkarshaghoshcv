@@ -28,11 +28,20 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (item: { type: "route" | "hash"; to: string }) => {
     setIsMobileMenuOpen(false)
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+    if (item.type === "route") {
+      navigate(item.to)
+      return
+    }
+    if (item.type === "hash") {
+      if (window.location.pathname !== "/") {
+        navigate(`/${item.to}`)
+        return
+      }
+      const element = document.querySelector(item.to)
+      if (element) element.scrollIntoView({ behavior: "smooth" })
+      else window.location.hash = item.to
     }
   }
 
