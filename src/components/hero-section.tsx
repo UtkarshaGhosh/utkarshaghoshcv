@@ -3,6 +3,15 @@ import { ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
+  const [parallax, setParallax] = useState({ x: 0, y: 0 })
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
+    const cx = rect.width / 2
+    const cy = rect.height / 2
+    const dx = ((e.clientX - rect.left - cx) / cx) * 20
+    const dy = ((e.clientY - rect.top - cy) / cy) * 20
+    setParallax({ x: dx, y: dy })
+  }
   const handleDownloadCV = async () => {
     const CV_URL = "https://cdn.builder.io/o/assets%2F3265fc7b7f7e43fc873a70e5cb8e78d5%2Fdcef5e30c2574e5686fe3d4e4d7ce641?alt=media&token=0e599403-b1d4-40ab-92c6-ee7fcabef778&apiKey=3265fc7b7f7e43fc873a70e5cb8e78d5"
     try {
@@ -27,10 +36,10 @@ export function HeroSection() {
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden" onMouseMove={handleMouseMove}>
       {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-hero opacity-20"></div>
-      <div className="absolute inset-0">
+      <motion.div className="absolute inset-0" animate={{ x: parallax.x, y: parallax.y }} transition={{ type: 'spring', stiffness: 60, damping: 20 }}>
         {[...Array(50)].map((_, i) => (
           <motion.div
             key={i}
@@ -50,9 +59,9 @@ export function HeroSection() {
             }}
           />
         ))}
-      </div>
+      </motion.div>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="container mx-auto px-4 text-center relative z-10 pointer-events-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
