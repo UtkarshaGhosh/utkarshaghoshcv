@@ -5,14 +5,14 @@ import { ThemeToggle } from "./theme-toggle"
 import { Button } from "@/components/ui/button"
 
 const navItems = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#education", label: "Education" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#internships", label: "Internships" },
-  { href: "#achievements", label: "Achievements" },
-]
+  { type: "route", to: "/", label: "Home" },
+  { type: "hash", to: "#about", label: "About" },
+  { type: "route", to: "/education", label: "Education" },
+  { type: "route", to: "/skills", label: "Skills" },
+  { type: "route", to: "/projects", label: "Projects" },
+  { type: "route", to: "/internships", label: "Internships" },
+  { type: "route", to: "/achievements", label: "Achievements" },
+] as const
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
