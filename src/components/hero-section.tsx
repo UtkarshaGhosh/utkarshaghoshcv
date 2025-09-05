@@ -8,13 +8,6 @@ export function HeroSection() {
     console.log("Downloading CV...")
   }
 
-  const handleContactClick = () => {
-    const element = document.querySelector("#contact")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-  }
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated background */}
@@ -100,17 +93,9 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
             <Button
-              onClick={handleContactClick}
+              onClick={handleDownloadCV}
               size="lg"
               className="bg-gradient-primary hover-glow text-white border-0 px-8 py-6 text-lg"
-            >
-              Get In Touch
-            </Button>
-            <Button
-              onClick={handleDownloadCV}
-              variant="outline"
-              size="lg"
-              className="glass-card hover-glow border-primary/30 px-8 py-6 text-lg"
             >
               <Download className="w-5 h-5 mr-2" />
               Download CV

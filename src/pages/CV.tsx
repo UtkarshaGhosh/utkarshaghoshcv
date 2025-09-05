@@ -7,7 +7,6 @@ import { SkillsSection } from "@/components/skills-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { InternshipsSection } from "@/components/internships-section"
 import { AchievementsSection } from "@/components/achievements-section"
-import { ContactSection } from "@/components/contact-section"
 
 export default function CV() {
   return (
@@ -22,7 +21,6 @@ export default function CV() {
           <ProjectsSection />
           <InternshipsSection />
           <AchievementsSection />
-          <ContactSection />
         </main>
         
         {/* Footer */}
