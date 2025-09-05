@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { Trophy, Medal, Palette, Zap, Award, Star } from "lucide-react"
+import { Trophy, Medal, Palette, Zap, Award } from "lucide-react"
 
 const achievements = [
   {
@@ -128,19 +128,6 @@ export function AchievementsSection() {
                 <h5 className="text-primary font-medium mb-3">{activity.subtitle}</h5>
                 <p className="text-muted-foreground text-sm">{activity.description}</p>
                 
-                {/* Progress indicator */}
-                <div className="mt-4 flex items-center gap-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-4 h-4 ${
-                        i < (activity.level === "Advanced" ? 5 : 3)
-                          ? "text-yellow-400 fill-current"
-                          : "text-muted"
-                      }`}
-                    />
-                  ))}
-                </div>
               </motion.div>
             ))}
           </div>
