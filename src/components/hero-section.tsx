@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { ArrowDown } from "lucide-react"
-import ProfileCard from "@/components/ProfileCard"
+import { SiteProfileCard } from "@/components/site-profile-card"
 
 export function HeroSection() {
   const handleDownloadCV = async () => {
@@ -59,18 +59,12 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="flex justify-center mb-12">
-            <ProfileCard
-              avatarUrl="/placeholder.svg"
-              miniAvatarUrl="/placeholder.svg"
+          <div className="flex justify-center mb-12 px-4">
+            <SiteProfileCard
               name="Utkarsha Ghosh"
               title="B.tech IT Student"
-              handle="utkarsha"
-              status="Open to opportunities"
-              contactText="Download CV"
-              onContactClick={handleDownloadCV}
-              enableTilt
-              className="scale-95 md:scale-100"
+              avatarUrl="/placeholder.svg"
+              onPrimaryClick={handleDownloadCV}
             />
           </div>
 
