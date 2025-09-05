@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 export function HeroSection() {
   const handleDownloadCV = () => {
     const link = document.createElement("a")
-    link.href = "/cv.pdf"
+    link.href = "https://cdn.builder.io/o/assets%2F3265fc7b7f7e43fc873a70e5cb8e78d5%2Fdcef5e30c2574e5686fe3d4e4d7ce641?alt=media&token=0e599403-b1d4-40ab-92c6-ee7fcabef778&apiKey=3265fc7b7f7e43fc873a70e5cb8e78d5"
     link.download = "CV.pdf"
     document.body.appendChild(link)
     link.click()
