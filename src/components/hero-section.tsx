@@ -85,7 +85,7 @@ export function HeroSection() {
             </div>
             <div className="relative">
               <div className="absolute -inset-6 bg-gradient-primary opacity-20 blur-3xl rounded-xl" />
-              <img src="/placeholder.svg" alt="Utkarsha Ghosh portrait" className="relative w-full max-w-md mx-auto rounded-xl ring-1 ring-white/20 shadow-elevation" />
+              <img src="/placeholder.jpg" alt="Utkarsha Ghosh portrait" className="relative w-full max-w-md mx-auto rounded-xl ring-1 ring-white/20 shadow-elevation" />
             </div>
           </div>
 
