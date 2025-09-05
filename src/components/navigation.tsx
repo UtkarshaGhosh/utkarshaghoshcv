@@ -118,11 +118,11 @@ export function Navigation() {
           >
             {navItems.map((item, index) => (
               <motion.button
-                key={item.href}
+                key={item.to}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 * index }}
-                onClick={() => handleNavClick(item.href)}
+                onClick={() => handleNavClick(item)}
                 className="block w-full text-left py-3 hover:text-primary transition-colors duration-300"
               >
                 {item.label}
