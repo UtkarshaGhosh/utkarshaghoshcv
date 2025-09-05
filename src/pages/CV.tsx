@@ -22,11 +22,6 @@ export default function CV() {
         <main className="relative z-10">
           <HeroSection />
           <AboutSection />
-          <EducationSection />
-          <SkillsSection />
-          <ProjectsSection />
-          <InternshipsSection />
-          <AchievementsSection />
         </main>
         
         {/* Footer */}
