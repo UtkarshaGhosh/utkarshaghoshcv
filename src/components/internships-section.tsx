@@ -6,21 +6,21 @@ const internships = [
   {
     company: "Emami Agrotech Limited",
     position: "IT Intern",
-    duration: "June - July 2025",
+    duration: "June – July 2025",
     location: "Kolkata",
-    type: "Upcoming",
-    description: "Upcoming IT internship focusing on agricultural technology solutions and enterprise IT systems.",
-    skills: ["Enterprise IT", "Agricultural Tech", "System Analysis"],
+    type: "Completed",
+    description: "Developed and deployed a centralized system to monitor logs from 40+ Windows servers for proactive issue identification. Implemented and configured CMDBuild to replace manual spreadsheet-based IT asset tracking.",
+    skills: ["Windows Server Logs", "CMDBuild", "Automation", "Monitoring"],
     icon: Building,
     color: "from-green-500 to-emerald-600"
   },
   {
-    company: "NSIC Technical Services Centre",
+    company: "The National Small Industries Corporation Ltd. Technical Services Centre",
     position: "Database Intern",
-    duration: "September 2024",
+    duration: "September 12–26, 2024",
     location: "Remote",
     type: "Completed",
-    description: "Specialized training in Snowflake Database in Cloud computing, gaining expertise in modern data warehousing and cloud database management.",
+    description: "Completed internship focused on Snowflake Database in Cloud computing with hands-on data warehousing and cloud DB management.",
     skills: ["Snowflake", "Cloud Computing", "Data Warehousing", "SQL"],
     icon: Database,
     color: "from-blue-500 to-cyan-600"
@@ -28,10 +28,15 @@ const internships = [
 ]
 
 const courses = [
-  "NPTEL - Computer Science Fundamentals",
-  "Coursera - Cybersecurity Specialization",
-  "LinkedIn Learning - Advanced Python",
-  "ISRO Summer School - Space Technology"
+  "NPTEL: The Joy of Computing using Python (IIT Madras) – Jul–Oct 2023",
+  "Google Cloud Computing Foundations (IIT Kharagpur) – Aug–Oct 2023",
+  "Introduction to Algorithms and Analysis (IIT Kharagpur) – Jul–Oct 2023",
+  "Cyber Security and Privacy (IIT Madras) – Jul–Oct 2024",
+  "Coursera: Advanced System Security Topics (University of Colorado)",
+  "Coursera: Probability & Statistics for ML & DS (DeepLearning.AI)",
+  "Coursera: Information Theory (The Chinese University of Hong Kong)",
+  "LinkedIn Learning: Python Object Oriented Programming",
+  "ISRO IIRS: Remote Sensing & GIS for Environmental Studies"
 ]
 
 export function InternshipsSection() {

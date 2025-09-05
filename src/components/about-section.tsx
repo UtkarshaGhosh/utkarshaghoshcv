@@ -79,11 +79,10 @@ export function AboutSection() {
             Professional Summary
           </h3>
           <p className="text-lg text-muted-foreground leading-relaxed text-center">
-            As a dedicated technology enthusiast, I bring together academic excellence with practical 
-            experience through internships and personal projects. My expertise spans from cybersecurity 
-            implementations to full-stack web development, always with a focus on creating secure, 
-            efficient, and user-friendly solutions. I thrive in collaborative environments and am 
-            passionate about staying at the forefront of emerging technologies.
+            I am a second-year B.Tech student passionate about cybersecurity, proficient in Python, C, Java, HTML and SQL.
+            Skilled in leadership, problem-solving, and interpersonal communication. I excel at analyzing and developing
+            solutions while collaborating effectively in teams. I am committed to continuous learning and applying technical
+            expertise to address challenges in different environments.
           </p>
         </motion.div>
       </div>

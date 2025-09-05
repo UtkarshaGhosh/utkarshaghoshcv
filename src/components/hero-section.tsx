@@ -1,18 +1,45 @@
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { ArrowDown, Download, Mail, Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ArrowDown } from "lucide-react"
 
 export function HeroSection() {
-  const handleDownloadCV = () => {
-    // This would typically trigger a PDF download
-    console.log("Downloading CV...")
+  const [parallax, setParallax] = useState({ x: 0, y: 0 })
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
+    const cx = rect.width / 2
+    const cy = rect.height / 2
+    const dx = ((e.clientX - rect.left - cx) / cx) * 20
+    const dy = ((e.clientY - rect.top - cy) / cy) * 20
+    setParallax({ x: dx, y: dy })
+  }
+  const handleDownloadCV = async () => {
+    const CV_URL = "https://cdn.builder.io/o/assets%2F3265fc7b7f7e43fc873a70e5cb8e78d5%2Fdcef5e30c2574e5686fe3d4e4d7ce641?alt=media&token=0e599403-b1d4-40ab-92c6-ee7fcabef778&apiKey=3265fc7b7f7e43fc873a70e5cb8e78d5"
+    try {
+      const res = await fetch(CV_URL, { mode: "cors" })
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement("a")
+      link.href = url
+      link.download = "Utkarsha Ghosh_CV.pdf"
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+      URL.revokeObjectURL(url)
+    } catch {
+      const link = document.createElement("a")
+      link.href = CV_URL
+      link.download = "Utkarsha Ghosh_CV.pdf"
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+    }
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden" onMouseMove={handleMouseMove}>
       {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-hero opacity-20"></div>
-      <div className="absolute inset-0">
+      <motion.div className="absolute inset-0" animate={{ x: parallax.x, y: parallax.y }} transition={{ type: 'spring', stiffness: 60, damping: 20 }}>
         {[...Array(50)].map((_, i) => (
           <motion.div
             key={i}
@@ -32,75 +59,35 @@ export function HeroSection() {
             }}
           />
         ))}
-      </div>
+      </motion.div>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="container mx-auto px-4 text-center relative z-10 pointer-events-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          {/* Name Animation */}
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, type: "spring", bounce: 0.5 }}
-            className="text-6xl md:text-8xl font-bold mb-6"
-          >
-            <span className="text-gradient">Utkarsha</span>
-            <br />
-            <span className="text-gradient">Ghosh</span>
-          </motion.h1>
-
-          {/* Title Animation */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mb-8"
-          >
-            <h2 className="text-xl md:text-2xl text-muted-foreground mb-2">
-              B.Tech IT Student
-            </h2>
-            <h3 className="text-lg md:text-xl text-muted-foreground">
-              Cybersecurity & Software Enthusiast
-            </h3>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 text-muted-foreground"
-          >
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4" />
-              <span>utkarsha04ghosh@gmail.com</span>
+          <div className="grid md:grid-cols-2 items-center gap-10 md:gap-16 text-left">
+            <div>
+              <p className="text-sm uppercase tracking-widest text-muted-foreground mb-2">Hello I'm</p>
+              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-3">
+                <span className="text-gradient">Utkarsha Ghosh</span>
+              </h1>
+              <h2 className="text-lg md:text-xl text-muted-foreground mb-4">B.tech IT Student</h2>
+              <p className="text-muted-foreground max-w-xl mb-6">
+                Passionate about building secure, user‑friendly software. Exploring cybersecurity,
+                data, and modern web technologies.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a href="#about" className="px-4 py-2 rounded-md glass-card hover-glow">About Me</a>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              <span>8910336498</span>
+            <div className="relative">
+              <div className="absolute -inset-6 bg-gradient-primary opacity-20 blur-3xl rounded-xl" />
+              <img src="/placeholder.svg" alt="Utkarsha Ghosh portrait" className="relative w-full max-w-md mx-auto rounded-xl ring-1 ring-white/20 shadow-elevation" />
             </div>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-          >
-            <Button
-              onClick={handleDownloadCV}
-              size="lg"
-              className="bg-gradient-primary hover-glow text-white border-0 px-8 py-6 text-lg"
-            >
-              <Download className="w-5 h-5 mr-2" />
-              Download CV
-            </Button>
-          </motion.div>
+          </div>
 
           {/* Scroll Indicator */}
           <motion.div

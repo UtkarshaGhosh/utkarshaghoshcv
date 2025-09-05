@@ -25,7 +25,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Kolkata, India",
+    value: "8C, Mahesh Choudhury Lane, Bhowanipore, Kolkata-700025",
     href: "#",
     color: "from-red-500 to-pink-600"
   }
