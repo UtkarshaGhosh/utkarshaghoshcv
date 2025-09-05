@@ -1,6 +1,5 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { useState, useEffect } from "react"
 
 const technicalSkills = [
   { name: "Python", level: 90, color: "from-blue-500 to-blue-600" },
@@ -51,14 +50,17 @@ export function SkillsSection() {
           className="mb-16"
         >
           <h3 className="text-2xl font-bold mb-8 text-center">Technical Skills</h3>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
             {technicalSkills.map((skill, index) => (
-              <SkillBar
+              <motion.div
                 key={skill.name}
-                skill={skill}
-                index={index}
-                inView={inView}
-              />
+                initial={{ opacity: 0, scale: 0 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.05 * index }}
+                className="rounded-full px-4 py-2 bg-muted text-foreground hover-lift"
+              >
+                <span className="text-sm font-medium">{skill.name}</span>
+              </motion.div>
             ))}
           </div>
         </motion.div>
@@ -88,50 +90,5 @@ export function SkillsSection() {
 
       </div>
     </section>
-  )
-}
-
-interface SkillBarProps {
-  skill: {
-    name: string
-    level: number
-    color: string
-  }
-  index: number
-  inView: boolean
-}
-
-function SkillBar({ skill, index, inView }: SkillBarProps) {
-  const [progress, setProgress] = useState(0)
-
-  useEffect(() => {
-    if (inView) {
-      const timer = setTimeout(() => {
-        setProgress(skill.level)
-      }, index * 100)
-      return () => clearTimeout(timer)
-    }
-  }, [inView, skill.level, index])
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="glass-card p-4"
-    >
-      <div className="flex justify-between items-center mb-2">
-        <span className="font-medium">{skill.name}</span>
-        <span className="text-sm text-muted-foreground">{progress}%</span>
-      </div>
-      <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
-        <motion.div
-          className={`h-full bg-gradient-to-r ${skill.color} rounded-full`}
-          initial={{ width: 0 }}
-          animate={{ width: `${progress}%` }}
-          transition={{ duration: 1, delay: index * 0.1, ease: "easeOut" }}
-        />
-      </div>
-    </motion.div>
   )
 }
