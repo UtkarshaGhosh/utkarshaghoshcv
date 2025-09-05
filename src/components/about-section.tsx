@@ -45,7 +45,7 @@ export function AboutSection() {
             About Me
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Passionate 3nd-year B.Tech Information Technology student with a strong focus on cybersecurity 
+            Passionate 3rd-year B.Tech Information Technology student with a strong focus on cybersecurity 
             and software development. I combine technical expertise with creative problem-solving to build 
             innovative solutions that make a difference.
           </p>
