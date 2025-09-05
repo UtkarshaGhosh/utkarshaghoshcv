@@ -3,13 +3,27 @@ import { ArrowDown, Download, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
-  const handleDownloadCV = () => {
-    const link = document.createElement("a")
-    link.href = "https://cdn.builder.io/o/assets%2F3265fc7b7f7e43fc873a70e5cb8e78d5%2Fdcef5e30c2574e5686fe3d4e4d7ce641?alt=media&token=0e599403-b1d4-40ab-92c6-ee7fcabef778&apiKey=3265fc7b7f7e43fc873a70e5cb8e78d5"
-    link.download = "Utkarsha Ghosh_resume.pdf"
-    document.body.appendChild(link)
-    link.click()
-    link.remove()
+  const handleDownloadCV = async () => {
+    const CV_URL = "https://cdn.builder.io/o/assets%2F3265fc7b7f7e43fc873a70e5cb8e78d5%2Fdcef5e30c2574e5686fe3d4e4d7ce641?alt=media&token=0e599403-b1d4-40ab-92c6-ee7fcabef778&apiKey=3265fc7b7f7e43fc873a70e5cb8e78d5"
+    try {
+      const res = await fetch(CV_URL, { mode: "cors" })
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement("a")
+      link.href = url
+      link.download = "Utkarsha Ghosh_CV.pdf"
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+      URL.revokeObjectURL(url)
+    } catch {
+      const link = document.createElement("a")
+      link.href = CV_URL
+      link.download = "Utkarsha Ghosh_CV.pdf"
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+    }
   }
 
   return (
