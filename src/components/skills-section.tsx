@@ -18,10 +18,6 @@ const tools = [
   "PowerShell", "Linux", "Docker", "Figma", "Postman"
 ]
 
-const softSkills = [
-  "Leadership", "Problem Solving", "Team Collaboration", "Critical Thinking",
-  "Project Management", "Communication", "Adaptability", "Time Management"
-]
 
 export function SkillsSection() {
   const [ref, inView] = useInView({
@@ -43,8 +39,7 @@ export function SkillsSection() {
             Skills & Expertise
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A comprehensive overview of my technical skills, tools, and soft skills 
-            developed through academic projects and practical experience.
+            A comprehensive overview of my technical skills and tools developed through academic projects and practical experience.
           </p>
         </motion.div>
 
@@ -75,7 +70,7 @@ export function SkillsSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-16"
         >
-          <h3 className="text-2xl font-bold mb-8 text-center">Tools & Technologies</h3>
+          <h3 className="text-2xl font-bold mb-8 text-center text-gradient">Tools & Technologies</h3>
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
             {tools.map((tool, index) => (
               <motion.div
@@ -83,7 +78,7 @@ export function SkillsSection() {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="glass-card px-4 py-2 hover-glow cursor-default"
+                className="rounded-full px-4 py-2 bg-gradient-to-r from-primary to-secondary text-white shadow-glow hover-lift cursor-default"
               >
                 <span className="text-sm font-medium">{tool}</span>
               </motion.div>
@@ -91,27 +86,6 @@ export function SkillsSection() {
           </div>
         </motion.div>
 
-        {/* Soft Skills */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <h3 className="text-2xl font-bold mb-8 text-center">Soft Skills</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {softSkills.map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.1 * index }}
-                className="glass-card p-4 text-center hover-lift"
-              >
-                <span className="font-medium">{skill}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   )
