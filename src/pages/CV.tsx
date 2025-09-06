@@ -11,7 +11,7 @@ import LiquidEther from "@/components/liquid-ether"
 
 export default function CV() {
   return (
-    <ThemeProvider defaultTheme="light" storageKey="cv-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="cv-theme">
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative">
         <div className="fixed inset-0 z-0">
           <div className="w-full h-full">
