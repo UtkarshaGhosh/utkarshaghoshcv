@@ -13,7 +13,7 @@ export function HeroSection() {
     setParallax({ x: dx, y: dy })
   }
   const handleDownloadCV = async () => {
-    const CV_URL = "https://drive.google.com/uc?export=download&id=1THUN_HWbFMAFGCGUlPiePq8pabfqsTCP"
+    const CV_URL = "/Utkarsha Ghosh_CV.pdf"
     try {
       const res = await fetch(CV_URL, { mode: "cors" })
       const blob = await res.blob()
