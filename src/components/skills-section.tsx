@@ -14,7 +14,7 @@ const technicalSkills = [
 
 const tools = [
   "VS Code", "Jupyter Notebook", "Google Colab", "Git", "GitHub", 
-  "PowerShell", "Linux", "Docker", "Figma", "Postman"
+  "PowerShell", "Linux"
 ]
 
 
