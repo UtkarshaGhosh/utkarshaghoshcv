@@ -79,7 +79,7 @@ export function AboutSection() {
             Professional Summary
           </h3>
           <p className="text-lg text-muted-foreground leading-relaxed text-center">
-            I am a second-year B.Tech student passionate about cybersecurity, proficient in Python, C, Java, HTML and SQL.
+            I am a third-year B.Tech student passionate about cybersecurity, proficient in Python, C, Java, HTML and SQL.
             Skilled in leadership, problem-solving, and interpersonal communication. I excel at analyzing and developing
             solutions while collaborating effectively in teams. I am committed to continuous learning and applying technical
             expertise to address challenges in different environments.
