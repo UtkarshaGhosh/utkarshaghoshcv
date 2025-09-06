@@ -29,7 +29,7 @@ export function Navigation() {
   }, [])
 
   const handleDownloadCV = async () => {
-    const CV_URL = "https://cdn.builder.io/o/assets%2F3265fc7b7f7e43fc873a70e5cb8e78d5%2Fdcef5e30c2574e5686fe3d4e4d7ce641?alt=media&token=0e599403-b1d4-40ab-92c6-ee7fcabef778&apiKey=3265fc7b7f7e43fc873a70e5cb8e78d5"
+    const CV_URL = "https://drive.google.com/file/d/1THUN_HWbFMAFGCGUlPiePq8pabfqsTCP/view?usp=sharing"
     try {
       const res = await fetch(CV_URL, { mode: "cors" })
       const blob = await res.blob()
